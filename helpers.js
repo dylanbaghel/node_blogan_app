@@ -82,5 +82,13 @@ module.exports = {
         }
 
         return currentPage + "/" + totalPages;
+    },
+
+    showPagination(pages) {
+        if (pages < 2) {
+            return false;
+        }
+
+        return true;
     }
 };

@@ -15,7 +15,7 @@ const sequelize = require('./db/db');
 const users = require('./routes/users');
 const posts = require('./routes/posts');
 const comments = require('./routes/comments');
-const { truncate, formateDateTime, modifyPost, addComment, deleteComment, showNext, showPrev, itemCount, pageCounter } = require('./helpers');
+const { truncate, formateDateTime, modifyPost, addComment, deleteComment, showNext, showPrev, itemCount, pageCounter, showPagination } = require('./helpers');
 const { auth } = require('./middleware/auth');
 const { Post } = require('./models/Post');
 // PASSPORT SETTINGS
@@ -33,7 +33,8 @@ app.engine('handlebars', exphbs({
         showNext,
         showPrev,
         itemCount,
-        pageCounter
+        pageCounter,
+        showPagination
     }
 }));
 app.set('view engine', 'handlebars');

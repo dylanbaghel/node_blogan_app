@@ -16,9 +16,13 @@ const Post = sequelize.define('posts', {
             notEmpty: {
                 msg: "Please Enter Title"
             },
-            len: {
-                args: [3],
-                msg: "Title is Too Short"
+            isLengthOk(value) {
+                if (value.length <= 3) {
+                    throw new Error("Title is Too Short");
+                }
+                if (value.length > 220) {
+                    throw new Error("Title is Too Long")
+                }
             }
         }
     },

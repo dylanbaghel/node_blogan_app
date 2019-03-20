@@ -103,6 +103,17 @@ router.post('/', (req, res) => {
                 title,
                 body
             })
+        })
+        .catch(Sequelize.DatabaseError, (err) => {
+            res.render('posts/add', {
+                local_error: err.message,
+                title,
+                body
+            });
+        })
+        .catch(err => {
+            req.flash('error_msg', err.message);
+            res.redirect('/posts/add');
         });
 });
 

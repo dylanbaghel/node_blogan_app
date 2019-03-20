@@ -34,6 +34,7 @@
             {{/each}}
         </tbody>
     </table>
+    {{#if (showPagination pages)}}
     <div class="pagination">
         {{#if (showPrev currentPage)}}
         <li><a class="primary-btn" href="/dashboard?pageNo={{prev}}">Prev</a></li>
@@ -47,6 +48,7 @@
         <button class="primary-btn" disabled>Next</button>
         {{/if}}
     </div>
+    {{/if}}
     {{/unless}}
 </div>
 

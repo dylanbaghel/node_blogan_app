@@ -28,6 +28,7 @@
 </div>
 
 {{#if posts}}
+{{#if (showPagination pages)}}
 <div class="pagination container">
     {{#if (showPrev currentPage)}}
     <li><a class="primary-btn" href="?pageNo={{prev}}">Prev</a></li>
@@ -41,4 +42,5 @@
     <button class="primary-btn" disabled>Next</button>
     {{/if}}
 </div>
+{{/if}}
 {{/if}}
