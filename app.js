@@ -149,6 +149,6 @@ app.use('/comments', comments);
 app.get("*", (req, res) => {
     res.redirect('/pagenotfound');
 });
-app.listen(process.env.SERVER_PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log('Server is Up');
 });

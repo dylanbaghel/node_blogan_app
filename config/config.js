@@ -6,5 +6,5 @@ if (env === 'development') {
     process.env.DB_USERNAME = 'postgres';
     process.env.DB_PASSWORD= 'anya';
     process.env.DB_NAME = 'blogan';
-    process.env.SERVER_PORT = 3000;
+    process.env.PORT = 3000;
 }
