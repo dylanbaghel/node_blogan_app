@@ -10,7 +10,7 @@
     <div class="boxed-view__box">
         <h1>Register</h1>
         <br>
-        <form class="boxed-view__form" method="POST" action="/users" novalidate>
+        <form class="boxed-view__form" method="POST" action="/users" novalidate autocomplete="off">
             <label for="name">Full Name</label>
             <input type="text" name="fullName" {{#if name}} value="{{name}}" {{/if}}>
             <label for="email">Email</label>
