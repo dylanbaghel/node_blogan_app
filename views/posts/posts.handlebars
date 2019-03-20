@@ -1,0 +1,44 @@
+{{#if postCreatorName}}
+<h1 id="posts-page__title">{{postCreatorName}}'s Posts
+    <hr>
+</h1>
+{{else}}
+<h1 id="posts-page__title">Posts
+    <hr>
+</h1>
+{{/if}}
+
+<div class="grid">
+    {{#each posts}}
+    <div class="card">
+        <div class="card__content">
+            <h3 class="card__title">{{itemCount ../currentPage @index 9}}. {{truncate title 50 '...'}}
+                {{#if (modifyPost userId ../user.id)}}<a class="edit-icon" href="/posts/edit/{{id}}"><i
+                        class="fas ml-1 fa-pencil-alt"></i></a>{{/if}}</h3>
+            <hr>
+            <small class="date-time">{{formateDateTime createdAt}}</small>
+            <p class="card__text">{{truncate body 100 '...'}}</p>
+            <a href="/posts/{{id}}" class="card__btn">View Post</a>
+            <div class="chip">- <a href="/posts/users/{{userId}}">{{user.name}}</a></div>
+        </div>
+    </div>
+    {{else}}
+    <h1>No Posts Found</h1>
+    {{/each}}
+</div>
+
+{{#if posts}}
+<div class="pagination container">
+    {{#if (showPrev currentPage)}}
+    <li><a class="primary-btn" href="?pageNo={{prev}}">Prev</a></li>
+    {{else}}
+    <button class="primary-btn" disabled>Prev</button>
+    {{/if}}
+    <p>{{pageCounter currentPage pages}}</p>
+    {{#if (showNext currentPage pages)}}
+    <li><a class="primary-btn" href="?pageNo={{next}}">Next</a></li>
+    {{else}}
+    <button class="primary-btn" disabled>Next</button>
+    {{/if}}
+</div>
+{{/if}}

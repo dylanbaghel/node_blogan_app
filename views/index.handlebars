@@ -1,0 +1,16 @@
+<div class="boxed-view">
+    <div class="boxed-view__box boxed-view__box--center">
+        <h1>Welcome To Blogan App, Share Your Articles</h1>
+        <p class="credit">Created By Dylan Baghel | v1.0.0</p>
+        {{#if user}}
+        <div class="boxed-view__form boxed-view__form--row">
+            <a href="/dashboard" class="btn">Dashboard</a>
+        </div>
+        {{else}}
+        <div class="boxed-view__form boxed-view__form--row">
+            <a href="/users/login" class="btn">Login</a>
+            <a href="/users/register" class="btn">Register</a>
+        </div>
+        {{/if}}
+    </div>
+</div>

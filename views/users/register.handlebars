@@ -1,0 +1,23 @@
+{{#if local_error}}
+<div class="msg">
+    <div class="msg__content msg__content--error">
+        <p>{{local_error}}</p>
+        <a id="close" aria-label="close">&times;</a>
+    </div>
+</div>
+{{/if}}
+<div class="boxed-view">
+    <div class="boxed-view__box">
+        <h1>Register</h1>
+        <br>
+        <form class="boxed-view__form" method="POST" action="/users" novalidate>
+            <label for="name">Full Name</label>
+            <input type="text" name="fullName" {{#if name}} value="{{name}}" {{/if}}>
+            <label for="email">Email</label>
+            <input type="email" name="email" {{#if email}} value="{{email}}" {{/if}}>
+            <label for="password">Password</label>
+            <input type="password" name="password">
+            <button class="btn" type="submit">Register</button>
+        </form>
+    </div>
+</div>

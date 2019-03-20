@@ -1,0 +1,23 @@
+{{#if local_error}}
+<div class="msg">
+    <div class="msg__content msg__content--error">
+        <p>{{local_error}}</p>
+        <a href="#" id="close" aria-label="close">&times;</a>
+    </div>
+</div>
+{{/if}}
+<div class="container">
+    <h1>Edit Post</h1>
+    <hr>
+    <br>
+    <div class="container--add-post">
+        <form method="POST" action="/posts/edit/{{post.id}}?_method=PUT" class="container--add-post__form">
+            <label for="title">Title</label>
+            <input type="text" placeholder="Enter Title" name="title" value="{{post.title}}">
+            <label for="body">Body</label>
+            <textarea name="body" placeholder="Enter Body">{{post.body}}</textarea>
+            <label class="checkbox-label"><input type="checkbox" name="published" {{#if post.published}} checked {{/if}}> Published</label>
+            <button class="primary-btn" type="submit">Edit Post</button>
+        </form>
+    </div>
+</div>

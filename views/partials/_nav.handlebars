@@ -1,0 +1,17 @@
+<nav class="navbar">
+    <h1 class="navbar__logo"><a href="/"><i class="mr-1 fas fa-marker"></i>Blogan</a></h1>
+    {{#if user}}
+    <ul class="navbar__nav-list">
+        <li><a href="/dashboard"><i class="fas hid fa-chart-line mr-1"></i>Dashboard</a></li>
+        <li><a href="/posts"><i class="mr-1 fas fa-newspaper"></i>Posts</a></li>
+        <li><a href="/users/logout"><i class="mr-1 fas fa-sign-out-alt"></i>Logout</a></li>
+    </ul>
+    {{else}}
+    <ul class="navbar__nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Posts</a></li>
+        <li><a href="/users/register">Register</a></li>
+        <li><a href="/users/login">Login</a></li>
+    </ul>
+    {{/if}}
+</nav>

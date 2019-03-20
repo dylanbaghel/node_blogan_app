@@ -1,0 +1,17 @@
+{{#if success_msg}}
+<div class="msg">
+    <div class="msg__content msg__content--success">
+        <p>{{success_msg}}</p>
+        <a id="close" aria-label="close">&times;</a>
+    </div>
+</div>
+{{/if}}
+
+{{#if error_msg}}
+<div class="msg">
+    <div class="msg__content msg__content--error">
+        <p>{{error_msg}}</p>
+        <a id="close" aria-label="close">&times;</a>
+    </div>
+</div>
+{{/if}}

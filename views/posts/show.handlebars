@@ -1,0 +1,57 @@
+<div class="container container--show-post">
+    <h1>{{post.title}}</h1>
+    <hr>
+    <small>Last Updated: {{formateDateTime post.updatedAt}}</small>
+    <br>
+    <small>Author: {{post.user.name}}</small>
+    <br>
+    <br>
+    <p>{{post.body}}</p>
+    <br>
+    {{#if (modifyPost post.userId user.id)}}
+    <a href="/posts/edit/{{post.id}}" class="primary-btn"><i class="fas fa-pencil-alt"></i></a>
+    <form class="form-inline" method="POST" action="/posts/{{post.id}}?_method=DELETE">
+        <button type="submit" class="dark-btn"><i class="fas fa-trash-alt"></i></button>
+    </form>
+    {{/if}}
+</div>
+
+<div class="container container--comments">
+        <h1>Comments</h1>
+        <hr>
+        <br>
+        {{#each post.comments}}
+            <div class="comment-box">
+                <div>
+                    <p>{{text}}</p>
+                    {{#if (deleteComment userId ../user.id ../post.userId)}}
+                    <form action="/comments/{{id}}?postId={{postId}}&_method=DELETE" method="POST">
+                        <button type="submit"><i class="fas fa-trash-alt"></i></button>
+                    </form>
+                    {{/if}}
+                </div>
+                <small>{{user.name}}</small>
+                <small>{{formateDateTime createdAt}}</small>
+            </div>
+        {{else}}
+            <h2>No Comments</h2>
+        {{/each}}
+</div>
+
+{{#if (addComment post.userId user.id)}}
+<div class="container container--comments">
+        <h1>Add Comment</h1>
+        <hr>
+        <br>
+        <form method="POST" action="/comments?postId={{post.id}}" class="add-comment-box">
+            <input type="text" placeholder="Add Comment..." name="commentText">
+            <button type="submit" class="primary-btn">Add</button>
+        </form>
+</div>
+{{/if}}
+
+{{#unless user}}
+<div class="container container--comments">
+    <p>Please <a href="/users/login">Login</a> To Add Comment</p>
+</div>
+{{/unless}}
